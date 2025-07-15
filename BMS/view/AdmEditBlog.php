@@ -73,6 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tr><td>keyword :</td>
                 <td><input type="text" name="keyword" value="<?php echo $blog['keyword']; ?>" readonly></td>
             </tr>
+            <tr><td>image :</td>
+                <td><img src="../image/<?= $blog['imagepath']; ?>" width="150" height="150" alt="image"></td>
+            </tr>
+
                 <td>Status:</td>
 
             <td>

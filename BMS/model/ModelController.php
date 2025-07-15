@@ -53,19 +53,37 @@ class UserModel
         $result = $this->conn->query($sql);
         return $result->fetch_assoc();
     }
-  public function UpdateBlog($blog_Id,$blogger_id,$title,$description,$created_on,$category ,$keyword,$status)
+  public function UpdateBlog($blog_Id,$blogger_id,$title,$description,$created_on,$category ,$keyword,$imagepath,$status)
   {
-      $sql="UPDATE blog SET blog_id = '$blog_Id', blogger_id = '$blogger_id', title = '$title',description = '$description',created_on = '$created_on',category='$category', keyword='$keyword', status = '$status' WHERE blog_id = '$blog_Id'";
+      $sql="UPDATE blog SET blog_id = '$blog_Id', blogger_id = '$blogger_id', title = '$title',description = '$description',created_on = '$created_on',category='$category', keyword='$keyword',imagepath='$imagepath', status = '$status' WHERE blog_id = '$blog_Id'";
         return $this->conn->query($sql);
 
     }
-
+//admin edit page
     public function AdmUpdateBlog($blog_Id,$blogger_id,$title,$description,$created_on,$category ,$keyword,$status)
   {
       $sql="UPDATE blog SET blog_id = '$blog_Id', blogger_id = '$blogger_id', title = '$title',description = '$description',created_on = '$created_on',category='$category', keyword='$keyword', status = '$status' WHERE blog_id = '$blog_Id'";
         return $this->conn->query($sql);
 
     }
+
+    //bloger edit page
+
+    public function BlgUpdateBlog($blog_Id, $blogger_id, $title, $description, $created_on, $category, $keyword, $image, $status)
+{
+    $sql = "UPDATE blog SET 
+            blogger_id = '$blogger_id', 
+            title = '$title', 
+            description = '$description', 
+            created_on = '$created_on', 
+            category = '$category', 
+            keyword = '$keyword', 
+            imagepath = '$image', 
+            status = '$status' 
+            WHERE blog_id = '$blog_Id'";
+    return $this->conn->query($sql);
+}
+
 
     //viewer page data
     public function ViewPageBlog()
