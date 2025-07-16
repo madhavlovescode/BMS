@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 require_once './model/ModelController.php';
 require_once './config/db.php';
 

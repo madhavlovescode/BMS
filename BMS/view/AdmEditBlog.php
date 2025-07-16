@@ -56,9 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tr>
             <tr>
                 <td>Description:</td>
-                <td><textarea rows="5" cols="40" name="description"readonly>
+                <td><textarea rows="10" cols="100" name="description" readonly>
                     <?php echo $blog['description'];
-
                     ?>
                 </textarea></td>
             </tr>

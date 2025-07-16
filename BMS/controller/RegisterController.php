@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
 
 require_once './model/ModelController.php';
 require_once './config/db.php';
 
 class RegisterController
 {
-    public function register(): void
+    public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name     = $_POST['name'] ?? '';
@@ -16,9 +15,17 @@ class RegisterController
 
             $model = new UserModel($GLOBALS['conn']);
 
-            if ($model->registerUser($name, $email, $password)) {
-                echo "Registration successful. <a href='Index.php'>Login Now</a>";
+            if (empty($name) || empty($email) || empty($password)) {
+            echo "Every field is required";
             }
+            else if ($model->registerUser($name, $email, $password)) {
+             echo "Registration successful. <a href='Index.php'>Login Now</a>";
+            }
+            else {
+                echo "Registration failed. Try again.";
+            }
+
         }
+        
     }
 }

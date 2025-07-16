@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 class UserModel
 {
     private $conn;
@@ -24,7 +21,7 @@ class UserModel
         return $result->fetch_assoc();
     }
 
-    public function createBlog(string $bloggerId, string $title, string $description, string $date, string $category,string $keywords,string $imagepath, string $status)
+    public function createBlog(string $bloggerId, string $title,$description, string $date, string $category,string $keywords,string $imagepath, string $status)
     {
         $sql = "INSERT INTO blog (blogger_id, title, description,created_on, category, keyword, imagepath, status)
                 VALUES ('$bloggerId', '$title', '$description', '$date', '$category', '$keywords', '$imagepath','$status')";
